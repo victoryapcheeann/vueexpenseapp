@@ -1,8 +1,8 @@
 {
-  "name": "healint-assignment",
+  "name": "vue-expense-app",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "Yingdan <yingdan@healint.com>",
+  "author": "Victor Yap <victoryapcheeann@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
