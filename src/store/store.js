@@ -34,5 +34,23 @@ export const store = new VueX.Store({
             console.log(index);
             state.expenseList.splice(index, 1);
          }
+    },
+    actions: {
+        addExpense: ({ commit }) => {
+            commit('addExpense');
+        },
+        deleteExpense: ({ commit }) => {
+            commit('deleteExpense');
+        },
+        asyncAddExpense: ({ commit }) => {
+            setTimeout(() => {
+                commit('addExpense');
+            }, 1000);
+        },
+        asyncDeleteExpense: ({ commit }) => {
+            setTimeout(() => {
+                commit('deleteExpense');
+            }, 1000);
+        }
     }
 });
