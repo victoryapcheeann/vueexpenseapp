@@ -4,7 +4,7 @@
       @addExpense="addExpense">
     </expense-input>
     <expense-item
-      v-for="item in expenseList"
+      v-for="item in expenseListStoredByDate"
       :key="item.id"
       :item="item"
       @deleteExpense="deleteExpense">
@@ -16,20 +16,17 @@
 <script>
   import ExpenseItem from './ExpenseItem'
   import ExpenseInput from './ExpenseInput'
+  import { mapGetters } from 'vuex'
 export default {
   name: "ExpenseList",
   components: {
     ExpenseItem,
     ExpenseInput
   },
-  data() {
-    return {
-      expenseList: [{
-        id: 1,
-        date: '2017-11-01',
-        expense: 13
-      }]
-    }
+  computed: {
+      ...mapGetters([
+        'expenseListStoredByDate'
+    ])
   },
   methods: {
     addExpense: function(payload) {
