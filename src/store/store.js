@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueX from 'vuex';
+import _ from 'lodash';
 
 Vue.use(VueX);
 
@@ -15,23 +16,36 @@ export const store = new VueX.Store({
     },
     getters: {
         expenseListStoredByDate(state){
-          let storedList = state.expenseList.sort((a, b) => {
+          let sortedByDateList = state.expenseList.sort((a, b) => {
             return new Date(a.date) - new Date(b.date);
         });
-          return storedList;
+          return sortedByDateList;
+        },
+        expenseListForChart(state){
+            const output = _(state.expenseList)
+                    .map(item => {
+                        return {
+                            date: item.date,
+                            expense: parseInt(item.expense)
+                        }
+                    })
+                    .groupBy('date')
+                    .map((objs, key) => ({
+                        'date': key,
+                        'expense': _.sumBy(objs, 'expense') }))
+                    .value();
+
+            return output;
         }
     },
     mutations: {
         addExpense(state, payload) {
            state.expenseList.push(payload);
-           console.log(payload)
-           console.log(state)
         },
         deleteExpense(state, id) {
             let index = state.expenseList.map(function(item) {
               return item.id
             }).indexOf(id);
-            console.log(index);
             state.expenseList.splice(index, 1);
          }
     },

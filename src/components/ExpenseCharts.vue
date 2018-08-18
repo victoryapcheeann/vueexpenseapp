@@ -1,18 +1,17 @@
 <template>
   <div>
-      <p>Chart goes here...<p></p>
+      <p>{{ expenseListForChart }}</p>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   name: "ExpenseCharts",
-  data() {
-    return {
-    }
-  },
-  methods: {
-
+  computed: {
+      ...mapGetters([
+        'expenseListForChart'
+    ])
   }
 }
 </script>
