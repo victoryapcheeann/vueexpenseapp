@@ -34,8 +34,10 @@ export const store = new VueX.Store({
                         'date': key,
                         'expense': _.sumBy(objs, 'expense') }))
                     .value();
+            let dateData = _.map(output, 'date');
+            let expenseData = _.map(output, 'expense');
 
-            return output;
+            return {output, dateData, expenseData}
         }
     },
     mutations: {
@@ -43,7 +45,7 @@ export const store = new VueX.Store({
            state.expenseList.push(payload);
         },
         deleteExpense(state, id) {
-            let index = state.expenseList.map(function(item) {
+            let index = state.expenseList.map((item)=> {
               return item.id
             }).indexOf(id);
             state.expenseList.splice(index, 1);

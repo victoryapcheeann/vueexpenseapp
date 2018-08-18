@@ -5,6 +5,9 @@
 </template>
 
 <script>
+import 'echarts/lib/chart/bar'
+import 'echarts/lib/component/tooltip'
+
 import { mapGetters } from 'vuex'
 export default {
   name: "ExpenseCharts",
