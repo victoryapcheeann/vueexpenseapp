@@ -16,7 +16,7 @@
 <script>
   import ExpenseItem from './ExpenseItem'
   import ExpenseInput from './ExpenseInput'
-  import { mapGetters } from 'vuex'
+  import { mapGetters, mapMutations } from 'vuex'
 export default {
   name: "ExpenseList",
   components: {
@@ -29,17 +29,10 @@ export default {
     ])
   },
   methods: {
-    addExpense: function(payload) {
-      this.expenseList.push(payload);
-    },
-    deleteExpense: function(id) {
-      let index = this.expenseList.map(function(item) {
-        return item.id
-      }).indexOf(id);
-
-      this.expenseList.splice(index, 1);
-    }
-
+      ...mapMutations([
+        'addExpense',
+        'deleteExpense'
+    ])
   }
 }
 </script>
