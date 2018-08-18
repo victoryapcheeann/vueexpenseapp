@@ -1,13 +1,22 @@
 <template>
   <div>
-      <p>{{ expenseListForChart.expenseData }}</p>
-      <p>{{ expenseListForChart.dateData }}</p>
-      <p>{{ expenseListForChart.output }}</p>
+      <p class='chartHeader'>My Expense Chart</p>
+      <bar-chart 
+        :data="expenseListForChart" 
+        :colors="['green']"
+        height="600px"
+      >
+      </bar-chart>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import Vue from 'vue'
+import VueChartkick from 'vue-chartkick'
+import Chart from 'chart.js'
+
+Vue.use(VueChartkick, {adapter: Chart})
 
 export default {
   name: "ExpenseCharts",
@@ -21,7 +30,10 @@ export default {
 
 <style scoped>
 div {
-  color: white;
-  background-color: black;
+  background-color: lightblue;
+}
+
+.chartHeader {
+  text-align: center;
 }
 </style>

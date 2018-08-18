@@ -8,10 +8,10 @@ export const store = new VueX.Store({
     state: {
         expenseList: [
             {id: 1, date: '2017-01-01', expense: 20},
-            {id: 2, date: '2018-12-31', expense: 300},
-            {id: 3, date: '2018-02-10', expense: 1},
-            {id: 4, date: '2018-02-09', expense: 2},
-            {id: 5, date: '2018-02-02', expense: 3}
+            {id: 2, date: '2018-12-31', expense: 30},
+            {id: 3, date: '2018-02-10', expense: 5},
+            {id: 4, date: '2018-02-09', expense: 22},
+            {id: 5, date: '2018-02-02', expense: 13}
         ]
     },
     getters: {
@@ -22,22 +22,19 @@ export const store = new VueX.Store({
           return sortedByDateList;
         },
         expenseListForChart(state){
-            const output = _(state.expenseList)
-                    .map(item => {
-                        return {
-                            date: item.date,
-                            expense: parseInt(item.expense)
-                        }
-                    })
-                    .groupBy('date')
-                    .map((objs, key) => ({
-                        'date': key,
-                        'expense': _.sumBy(objs, 'expense') }))
-                    .value();
-            let dateData = _.map(output, 'date');
-            let expenseData = _.map(output, 'expense');
-
-            return {output, dateData, expenseData}
+            const summedResult = _(state.expenseList)
+            .map(item => {
+                return {
+                    date: item.date,
+                    expense: parseInt(item.expense)
+                }
+            })
+            .groupBy("date")
+            .mapValues(item => {
+                 return _.sumBy(item, 'expense');
+             })
+            .value()
+            return summedResult;
         }
     },
     mutations: {
@@ -45,7 +42,7 @@ export const store = new VueX.Store({
            state.expenseList.push(payload);
         },
         deleteExpense(state, id) {
-            let index = state.expenseList.map((item)=> {
+            let index = state.expenseList.map(function(item) {
               return item.id
             }).indexOf(id);
             state.expenseList.splice(index, 1);
