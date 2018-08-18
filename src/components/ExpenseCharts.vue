@@ -1,14 +1,14 @@
 <template>
   <div>
-      <p>{{ expenseListForChart }}</p>
+      <p>{{ expenseListForChart.expenseData }}</p>
+      <p>{{ expenseListForChart.dateData }}</p>
+      <p>{{ expenseListForChart.output }}</p>
   </div>
 </template>
 
 <script>
-import 'echarts/lib/chart/bar'
-import 'echarts/lib/component/tooltip'
-
 import { mapGetters } from 'vuex'
+
 export default {
   name: "ExpenseCharts",
   computed: {
