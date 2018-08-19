@@ -17,10 +17,6 @@ export default {
       required: true
     }
   },
-  data() {
-    return {
-    }
-  },
   methods: {
     emitDelete(){
       this.$emit('deleteExpense', this.item.id);
@@ -31,7 +27,7 @@ export default {
 
 <style scoped>
   .close.circle.icon {
-    padding-left: 60px;
+    padding-left: 80px;
   }
   .expenseItemStyle {
     background-image: linear-gradient(to right, #fcb69f 0%, #ffecd2 100%);
