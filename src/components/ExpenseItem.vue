@@ -22,7 +22,7 @@ export default {
     }
   },
   methods: {
-    emitDelete: function(){
+    emitDelete(){
       this.$emit('deleteExpense', this.item.id);
     }
   }
@@ -31,13 +31,11 @@ export default {
 
 <style scoped>
   .close.circle.icon {
-    right: 0.2em;
-    top: 0.5em;
-    padding-left: 30px;
+    padding-left: 60px;
   }
-
   .expenseItemStyle {
     background-image: linear-gradient(to right, #fcb69f 0%, #ffecd2 100%);
     border-color: white;
+    box-shadow: 10px 10px 20px -6px rgba(252,188,138,1);
   }
 </style>

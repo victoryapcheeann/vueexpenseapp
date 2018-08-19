@@ -10,7 +10,7 @@ export const store = new VueX.Store({
             {id: 0, date: '2018-08-01', expense: 20},
             {id: 1, date: '2018-08-01', expense: 20},
             {id: 2, date: '2018-08-31', expense: 30},
-            {id: 0, date: '2018-08-10', expense: 10}
+            {id: 3, date: '2018-08-10', expense: 10}
         ]
     },
     getters: {
