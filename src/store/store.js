@@ -7,15 +7,12 @@ Vue.use(VueX);
 export const store = new VueX.Store({
     state: {
         expenseList: [
-            {id: 1, date: '2017-01-01', expense: 20},
-            {id: 2, date: '2018-12-31', expense: 30},
-            {id: 3, date: '2018-02-10', expense: 5},
-            {id: 4, date: '2018-02-09', expense: 22},
-            {id: 5, date: '2018-02-02', expense: 13}
+            {id: 1, date: '2018-01-01', expense: 20},
+            {id: 2, date: '2018-10-31', expense: 30}
         ]
     },
     getters: {
-        expenseListStoredByDate(state){
+        expenseListSortedByDate(state){
           let sortedByDateList = state.expenseList.sort((a, b) => {
             return new Date(a.date) - new Date(b.date);
         });

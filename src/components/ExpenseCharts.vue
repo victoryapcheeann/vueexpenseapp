@@ -1,12 +1,13 @@
 <template>
   <div>
       <p class='chartHeader'>My Expense Chart</p>
-      <bar-chart 
+      <line-chart 
         :data="expenseListForChart" 
-        :colors="['green']"
-        height="600px"
+        :colors="['orange']"
+        height="600px" 
+        class='chartStyle' 
       >
-      </bar-chart>
+      </line-chart>
   </div>
 </template>
 
@@ -19,7 +20,7 @@ import Chart from 'chart.js'
 Vue.use(VueChartkick, {adapter: Chart})
 
 export default {
-  name: "ExpenseCharts",
+  name: "ExpenseCharts",   
   computed: {
       ...mapGetters([
         'expenseListForChart'
@@ -30,7 +31,12 @@ export default {
 
 <style scoped>
 div {
-  background-color: lightblue;
+  border-radius: 40px;
+  padding: 30px;
+}
+
+.chartStyle {
+  background-image: linear-gradient(-100deg, #a1c4fd 0%, #c2e9fb 100%);
 }
 
 .chartHeader {

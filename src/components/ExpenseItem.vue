@@ -1,8 +1,8 @@
 <template>
-  <div class="ui segment">
+  <div class="ui segment expenseItemStyle">
+    <b>Date:</b> {{ item.date }}
     <i @click="emitDelete"
        class="red close circle icon"></i>
-    <b>Date:</b> {{ item.date }}
     <br>
     <b>Expense:</b> $ {{ item.expense }}
   </div>
@@ -31,8 +31,13 @@ export default {
 
 <style scoped>
   .close.circle.icon {
-    position: absolute;
     right: 0.2em;
     top: 0.5em;
+    padding-left: 30px;
+  }
+
+  .expenseItemStyle {
+    background-image: linear-gradient(to right, #fcb69f 0%, #ffecd2 100%);
+    border-color: white;
   }
 </style>
