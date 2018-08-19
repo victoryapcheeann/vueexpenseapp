@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class = "expenseList">
     <expense-input
       @addExpense="addExpense">
     </expense-input>
@@ -76,5 +76,20 @@ export default {
       transform: translateY(20px);
       opacity: 0;
     }
+  }
+
+  @keyframes listEnterAnimation {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.expenseList {
+    animation:1s ease-out 0s 1 listEnterAnimation
   }
 </style>
