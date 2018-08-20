@@ -58,7 +58,7 @@
 
   .modal-header,
   .modal-footer {
-    padding: 30px;
+    padding: 20px;
     display: flex;
     text-align: center;
   }
@@ -82,7 +82,8 @@
   .btn-close {
     border: none;
     font-size: 20px;
-    padding: 20px;
+    padding: 10px;
+    margin-left: 10px;
     cursor: pointer;
     font-weight: bold;
     color: rgb(237, 8, 69);

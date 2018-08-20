@@ -30,7 +30,6 @@ export default {
     padding-left: 80px;
   }
   .expenseItemStyle {
-    background-image: linear-gradient(to right, #fcb69f 0%, #ffecd2 100%);
     border-color: white;
     box-shadow: 10px 10px 20px -6px rgba(252,188,138,1);
   }
