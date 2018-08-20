@@ -1,14 +1,15 @@
 <template>
-  <div>
-      <ParticleComponent class='chartHeader'/>
-      <line-chart 
-        :data="expenseListForChart" 
-        :colors="['grey']"
-        height="600px" 
-        class='chartStyle' 
-      >
-      </line-chart>
-  </div>
+    <div>
+        <Logo class='logoStyle'/>    
+        <ParticleComponent class='chartHeader'/>
+        <line-chart 
+          :data="expenseListForChart" 
+          :colors="['grey']"
+          height="600px" 
+          class='chartStyle' 
+        >
+        </line-chart>
+    </div>
 </template>
 
 <script>
@@ -17,13 +18,15 @@ import Vue from 'vue'
 import VueChartkick from 'vue-chartkick'
 import oChart from 'chart.js'
 import ParticleComponent from './Particles/particle-component'
+import Logo from './Logo/Logo'
 
 Vue.use(VueChartkick, {adapter: Chart})
 
 export default {
   name: "ExpenseCharts", 
   components: {
-    ParticleComponent
+    ParticleComponent,
+    Logo
   },
   computed: {
       ...mapGetters([
@@ -39,6 +42,15 @@ export default {
   border-radius: 40px;
   background-image: linear-gradient(-100deg, #a1c4fd 0%, #c2e9fb 100%);
   animation: 	1s ease-out 0s 1 chartEnterAnimation
+}
+
+.logoStyle {
+  position: absolute;
+  margin-left: -60%;
+}
+
+.headerContainer {
+  display: flex;
 }
 
 .chartHeader {
