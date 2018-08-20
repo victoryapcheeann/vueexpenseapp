@@ -33,12 +33,12 @@ export default {
           buttonOptions: {
             particleType: 'triangle',
             particleStyle: 'stroke',
-            size: 5,
+            size: 3,
             particleColor: 'blue',
-            duration: 1400,
-            speed: 1.5,
-            oscillationCoefficient: 15,
-            direction: 'right',
+            duration: 1000,
+            speed: 2,
+            oscillationCoefficient: 20,
+            direction: 'top',
           },
         }
       ],

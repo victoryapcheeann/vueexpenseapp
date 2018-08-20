@@ -33,6 +33,8 @@ export const store = new VueX.Store({
                  return _.sumBy(item, 'expense');
              })
             .value()
+
+            console.log(summedResult)
             return summedResult;
         }
     },

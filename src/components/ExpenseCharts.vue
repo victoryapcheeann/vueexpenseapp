@@ -16,7 +16,7 @@
 import { mapGetters } from 'vuex'
 import Vue from 'vue'
 import VueChartkick from 'vue-chartkick'
-import oChart from 'chart.js'
+import Chart from 'chart.js'
 import ParticleComponent from './Particles/particle-component'
 import Logo from './Logo/Logo'
 
@@ -47,6 +47,7 @@ export default {
 .logoStyle {
   position: absolute;
   margin-left: -60%;
+  animation: 	1s ease-out 0s 1 logoEnterAnimation
 }
 
 .headerContainer {
@@ -77,6 +78,17 @@ export default {
   }
   100% {
     transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes logoEnterAnimation {
+  0% {
+    transform: translatex(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
     opacity: 1;
   }
 }
